@@ -14,6 +14,8 @@ router.get('/', restricted, (req,res) => {
         .catch(err => res.status(500).json(err))
 })
 
+
+
 function restricted(req,res,next){
     const token = req.headers.authorization;
 
