@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Redirect, Link } from 'react-router-dom';
 
 const SignUp = props => {
   const [username, setUsername] = useState('');
   const [department, setDepartment] = useState('');
   const [password, setPassword] = useState('');
   const [rtPass, setRtPass] = useState('');
+  const [success, setSuccess] = useState(false);
 
     return(
         <div className="signup">
+          {success ? <Redirect to='/login' /> : null}
           <h2>sign up</h2>
           <form
           onSubmit={e => {
             e.preventDefault();
-            if(password === rtPass){
+            if(password === rtPass && username){
               const newAcc = {
                 username,
                 department,
@@ -26,9 +29,11 @@ const SignUp = props => {
                   setPassword("");
                   setRtPass("");
                   setDepartment("");
+                  setSuccess(true);
                 })
                 .catch(err => console.log(err))
-
+            }else{
+              console.log('please finish filling out the form')
             }
 
           }}

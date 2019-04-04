@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 const Login = props => {
 
@@ -8,6 +9,7 @@ const Login = props => {
 
   return(
     <div className="login">
+      {localStorage.getItem("token") ? <Redirect to='/users' /> : null}
       <h2>log in</h2>
       <form
       onSubmit={e => {
@@ -23,6 +25,7 @@ const Login = props => {
             setPassword('');
           })
           .catch(err => console.log(err))
+      
       }}
       >
         <label>username</label>
