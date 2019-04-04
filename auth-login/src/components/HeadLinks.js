@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 
 const HeadLinks = props => {
     return(
-        <div>
+        <div className="headLinks">
             <div style={ localStorage.getItem('token') ? {display: 'none'} : null }>
-            <Link to="/login">
+            <Link className="logBtn" to="/login">
                 login
             </Link>
 
-            <Link to="/signup">
+            <Link className="logBtn" to="/signup">
                 signup
             </Link>
             </div>

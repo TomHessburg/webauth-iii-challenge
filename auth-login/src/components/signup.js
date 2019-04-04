@@ -10,7 +10,7 @@ const SignUp = props => {
   const [success, setSuccess] = useState(false);
 
     return(
-        <div className="signup">
+        <div className="login">
           {success ? <Redirect to='/login' /> : null}
           <h2>sign up</h2>
           <form

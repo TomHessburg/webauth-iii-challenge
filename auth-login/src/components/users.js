@@ -13,21 +13,24 @@ const Users = props => {
     } , [])
 
     return(
-        <div>
+        <div className="users">
             <Link 
+                className="logBtn"
                 onClick={e => {
                 localStorage.removeItem("token");
                 }}
                 to="/login">
                     log out
             </Link>
-            {users.map(user => {
-                return <div key={user.id}>
-                    <h3>{user.username}</h3>
-                    <p>{user.department}</p>
-                </div>
-            })
-            }
+            <div className="userBoxes">
+                {users.map(user => {
+                    return <div key={user.id}>
+                        <h3>{user.username}</h3>
+                        <p>{user.department}</p>
+                    </div>
+                })
+                }
+            </div>
         </div>
     );
 }
