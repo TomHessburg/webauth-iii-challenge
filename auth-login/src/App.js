@@ -4,7 +4,7 @@ import SignUp from './components/signup.js'
 import Login from './components/login.js'
 import Users from './components/users.js'
 import HeadLinks from './components/HeadLinks.js';
-import { Route, Link, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   render() {

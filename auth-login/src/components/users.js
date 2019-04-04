@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const Users = props => {
     const [users, setUsers] = useState([]);
@@ -14,6 +14,7 @@ const Users = props => {
 
     return(
         <div className="users">
+            {localStorage.getItem("token") ? null : <Redirect to="login" />}
             <Link 
                 className="logBtn"
                 onClick={e => {
